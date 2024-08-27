@@ -11,58 +11,48 @@ Select * from regions;
 
 
 1. How many unique nodes are there in the Data Bank system?
-select count(distinct node_id)
-from customer_nodes
+--select count(distinct node_id)
+--from customer_nodes
 
--- 5
+
 
 2.  What is the number of nodes per region?
-Select count (c.Node_id ), r.region_name
-from customer_nodes as c
-Inner join regions as r
-on c.region_id = r.region_id
-Group by r.region_name
+--Select count (c.Node_id ), r.region_name
+--from customer_nodes as c
+--Inner join regions as r
+--on c.region_id = r.region_id
+--Group by r.region_name
 
 
 3.How many customers are allocated to each region?
-Select count (distinct c.customer_ID), r.region_Name
-From customer_nodes as c
-Inner join regions as r
-on c.region_ID = r.region_ID
-Group By R.region_Name;
+--Select count (distinct c.customer_ID), r.region_Name
+--From customer_nodes as c
+--Inner join regions as r
+--on c.region_ID = r.region_ID
+--Group By R.region_Name;
 
 4. How many days on average are customers reallocated to a different node? -- need to rework
-SELECT AVG(f) FROM 
-(select JULIANDAY(end_date) - JULIANDAY(start_date) AS f
-from customer_nodes
-where end_date != '99991231') AS T
+--SELECT AVG(f) FROM 
+--(select JULIANDAY(end_date) - JULIANDAY(start_date) AS f
+--from customer_nodes
+--where end_date != '99991231') AS T
 
-5.What is the median, 80th, and 95th percentile for this same reallocation days metric for each region?
 
 
 
 II
 
 1. What is the unique count and total amount for each transaction type? 
-Select txn_type, Count (txn_type), sum (txn_amount)
-From customer_Transactions 
-Group by txn_type;
+--Select txn_type, Count (txn_type), sum (txn_amount)
+--From customer_Transactions 
+--Group by txn_type;
 
 2. What is the average total historical deposit counts and amounts for all customers?
-Select count (c.txn_type), avg (c.txn_amount)
-From customer_transactions as c
-Inner join customer_nodes as n
-On c.customer_id = n.customer_id
-inner join regions as r
-on r.region_id = n.region_id
-group by c.txn_type;
+--Select count (c.txn_type), avg (c.txn_amount)
+--From customer_transactions as c
+--Inner join customer_nodes as n
+--On c.customer_id = n.customer_id
+--inner join regions as r
+--on r.region_id = n.region_id
+--group by c.txn_type;
 
-3. For each month — how many Data Bank customers make more than 1 deposit and either one purchase or withdrawal in a single month?
-
-
-
-4. What is the closing balance for each customer at the end of the month?
-
-
-
-5. What is the percentage of customers who increase their closing balance by more than 5%?
