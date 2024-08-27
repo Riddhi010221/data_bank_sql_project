@@ -1,3 +1,4 @@
+-- Creating the Regions Table:
 CREATE TABLE regions (
   region_id INTEGER,
   region_name VARCHAR(9)
@@ -12,7 +13,9 @@ VALUES
   ('4', 'Asia'),
   ('5', 'Europe');
   
- CREATE TABLE customer_nodes (
+-- Creating the Customer_Nodes table: 
+
+CREATE TABLE customer_nodes (
   customer_id INTEGER,
   region_id INTEGER,
   node_id INTEGER,
@@ -3524,7 +3527,7 @@ VALUES
   ('499', '5', '1', '2020-02-03', '9999-12-31'),
   ('500', '2', '2', '2020-04-15', '9999-12-31');
   
- 
+-- Creating the Customer_transactions Table:  
  CREATE TABLE customer_transactions (
   customer_id INTEGER,
   txn_date DATE,
