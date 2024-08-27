@@ -1,9 +1,9 @@
--- Creating the Regions Table:
+-- Creating the Regions Table which has information about all the regions with their ID:
 CREATE TABLE regions (
   region_id INTEGER,
   region_name VARCHAR(9)
 );
-
+-- Inserting the region_id and region name values:
 INSERT INTO regions
   (region_id, region_name)
 VALUES
@@ -13,7 +13,7 @@ VALUES
   ('4', 'Asia'),
   ('5', 'Europe');
   
--- Creating the Customer_Nodes table: 
+-- Creating the Customer_Nodes table that has information about the customer Id, region Id and that connects the customer transaction and the region table: 
 
 CREATE TABLE customer_nodes (
   customer_id INTEGER,
